@@ -1,0 +1,282 @@
+:root {
+  color-scheme: light;
+  font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  background: #fff6fb;
+  color: #402d2d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #ffe1f1, #fff6fb 55%, #fff0d9);
+}
+
+.timer-app {
+  width: min(880px, 95vw);
+  padding: 32px 24px 40px;
+  background: #ffffffc4;
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(181, 94, 142, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.hero p {
+  margin: 0 auto 24px;
+  max-width: 520px;
+  font-size: 1rem;
+}
+
+.scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: 12px 0 8px;
+}
+
+.apple {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, #ffb3c8, #ff5f84 60%);
+  border-radius: 48% 52% 50% 50%;
+  box-shadow: inset 0 6px 12px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.apple-leaf {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background: #52b956;
+  border-radius: 0 100% 0 100%;
+  top: -14px;
+  right: 20px;
+  transform: rotate(-20deg);
+}
+
+.apple-bite {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: #fff6fb;
+  border-radius: 50%;
+  right: -8px;
+  top: 34px;
+  box-shadow: -8px 0 0 0 #fff6fb;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mouse {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+.mouse-ear {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #ffd2e1;
+  border-radius: 50%;
+  top: 0;
+  left: 32px;
+  box-shadow: inset 0 0 0 10px #ff9fbf;
+}
+
+.mouse-face {
+  position: absolute;
+  width: 90px;
+  height: 80px;
+  background: #ffe9f2;
+  border-radius: 50% 50% 45% 45%;
+  top: 30px;
+  left: 24px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.mouse-eye {
+  width: 8px;
+  height: 16px;
+  background: #402d2d;
+  border-radius: 50%;
+}
+
+.mouse-nose {
+  width: 18px;
+  height: 14px;
+  background: #ff8aae;
+  border-radius: 50%;
+  align-self: flex-end;
+}
+
+.mouse-body {
+  position: absolute;
+  width: 110px;
+  height: 80px;
+  background: #ffe1ee;
+  border-radius: 50% 50% 45% 45%;
+  bottom: 10px;
+  left: 16px;
+}
+
+.mouse-tail {
+  position: absolute;
+  width: 90px;
+  height: 8px;
+  border-radius: 20px;
+  background: #ff9fbf;
+  right: -20px;
+  top: 80px;
+  transform: rotate(20deg);
+}
+
+.timer-panel {
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #ffe1f1;
+  text-align: center;
+}
+
+.display {
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+  color: #ff5f84;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+input {
+  width: 90px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 2px solid #ffd2e1;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #ff5f84;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(255, 95, 132, 0.3);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.result {
+  margin-top: 24px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 18px;
+  background: #fff0d9;
+  display: none;
+}
+
+.result.show {
+  display: block;
+  animation: pop 0.4s ease;
+}
+
+.scene.finish .apple {
+  transform: scale(0.96) rotate(-6deg);
+}
+
+.scene.finish .apple-bite {
+  opacity: 1;
+}
+
+.scene.finish .mouse {
+  animation: nibble 0.6s ease-in-out infinite;
+}
+
+@keyframes nibble {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .scene {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .inputs {
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%;
+  }
+}

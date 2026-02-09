@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ねずみとりんごタイマー</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="timer-app">
+      <header class="hero">
+        <div class="scene" aria-hidden="true">
+          <div class="apple">
+            <div class="apple-leaf"></div>
+            <div class="apple-bite"></div>
+          </div>
+          <div class="mouse">
+            <div class="mouse-ear"></div>
+            <div class="mouse-face">
+              <div class="mouse-eye"></div>
+              <div class="mouse-eye"></div>
+              <div class="mouse-nose"></div>
+            </div>
+            <div class="mouse-body"></div>
+            <div class="mouse-tail"></div>
+          </div>
+        </div>
+        <h1>ねずみとりんごタイマー</h1>
+        <p>ポップでシンプル。オフラインで使えるカウントダウンタイマー。</p>
+      </header>
+
+      <section class="timer-panel" aria-live="polite">
+        <div class="display" id="time-display">00:00</div>
+        <div class="inputs">
+          <label>
+            分
+            <input type="number" id="minutes" min="0" max="180" value="0" />
+          </label>
+          <label>
+            秒
+            <input type="number" id="seconds" min="0" max="59" value="30" />
+          </label>
+        </div>
+        <div class="controls">
+          <button id="start">スタート</button>
+          <button id="pause" disabled>一時停止</button>
+          <button id="reset" disabled>リセット</button>
+        </div>
+      </section>
+
+      <section class="result" id="result" aria-hidden="true">
+        <h2>できあがり！</h2>
+        <p>りんごを食べ終わったよ 🍎</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
